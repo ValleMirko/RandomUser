@@ -4,12 +4,80 @@
 	<meta http-equiv="content-type" content="text/html" />
     <title>  randomUser.me  </title>
 
-	<link rel="stylesheet" href="index.css" />
+	<link rel="stylesheet" href="style.css" />
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script src="index.js"></script>
 </head>
 
 <body>
-	<h1>Random User</h1>
+	<header>
+		<h1> RANDOM USER GENERATOR </h1>
+		</header>
+		<section>
+			<div class="card">
+			<div class="details">
+			<div id="selection">
+				<img id="fc_min" src="img/Freccia-Blu-SX.png" class="frecce" onclick="visualizzaPersona(this.id.split('_')[1])" />
+				<div class="user_photo horizontal_center" id="user_photo"><a href="javascript:visualizzaPersona('plus');" class="refresh">New</a><img></div>
+				<img id="fc_plus" src="img/Freccia-Blu-DX.png" class="frecce" onclick="visualizzaPersona(this.id.split('_')[1])" />
+			</div>
+			<p id="user_title">My name is</p>
+			<p id="user_value">Mirko</p>
+			</div>
+			<ul class="values_list horizontal_center" id="values_list">
+				<li id="name" class="active" onmouseover="mostraDettagli($(this))"></li>
+				<li id="email" data-caps="false" onmouseover="mostraDettagli($(this))"></li>
+				<li id="location" onmouseover="mostraDettagli($(this))"></li>
+				<li id="phone" onmouseover="mostraDettagli($(this))"></li>
+				<li id="birthday" onmouseover="mostraDettagli($(this))"></li>
+				<li id="password" data-caps="false" onmouseover="mostraDettagli($(this))"></li>
+			</ul>
+			</div>
+			<div>
+				<div id="nPersone"></div>
+			</div>
+		</section>
+		<section class="filter">
+			<div>
+				<h3>Numero di Persone</h3>
+				<div>
+					<input id="numeroPersone" class="slider" type="range" min="1" max="25" value="12" step="1" oninput="cambiaValore(this.value)" />
+					<span class="sliderNumber">10</span>
+				</div>
+			</div>
+			<div>
+				<h3>Sesso</h3>
+				<div>
+					<label class="container">
+						<input type="radio" id="rdoT" name="rdo" class="rdo" checked />
+						<span class="checkmarkRdo"></span>Tutti i Generi</label>
+					<br />
+					<label class="container">
+						<input type="radio" id="rdoM" name="rdo" class="rdo" />
+						<span class="checkmarkRdo"></span>Maschi</label>
+					<br />
+					<label class="container">
+						<input type="radio" id="rdoF" name="rdo" class="rdo" />
+						<span class="checkmarkRdo"></span>Femmine</label>
+				</div>
+			</div>        
+			<div>
+				<h3>Nazionalità</h3>
+				<div id="naz">
+					<label class="container"><input type="checkbox" value="USA" class="chk" />
+						   <span class="checkmark"></span>USA</label>
+					<label class="container"><input type="checkbox" value="It" class="chk" />
+						   <span class="checkmark"></span>Italy</label>
+					<label class="container"><input type="checkbox" value="De" class="chk" />
+						   <span class="checkmark"></span>Germany</label>
+					<label class="container"><input type="checkbox" value="Fr" class="chk" />
+						   <span class="checkmark"></span>France</label>
+					<label class="container"><input type="checkbox" value="Ci" class="chk" />
+						   <span class="checkmark"></span>Cina</label>
+				</div>
+			</div>
+			<input type="button" value="Send request to the server" id="btnInvia" onclick="inviaRichiesta()" />
+		</section>
+		
 </body>
 </html>
